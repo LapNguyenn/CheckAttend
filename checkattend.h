@@ -3,22 +3,21 @@
 
 #include <QObject>
 #include <QWidget>
-#include "./ui_widget.h"
 #include "apihandler.h"
 #include "QNetworkReply"
+#include "QStandardItemModel"
 
 class CheckAttend : public QWidget
 {
     Q_OBJECT
 public:
-    CheckAttend(Ui::Widget *ui, QWidget *parent = nullptr);
+    CheckAttend(QWidget *parent = nullptr);
     ~CheckAttend();
 
 private slots:
     void handleConnectSuccess();
     void handleConnectFailed();
 private:
-    Ui::Widget *xUi;
     APIhandler *apiHandler;
 public:
     QStandardItemModel *model;

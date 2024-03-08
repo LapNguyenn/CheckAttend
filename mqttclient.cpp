@@ -2,7 +2,7 @@
 #include "QTimer"
 #include "QMessageBox"
 mqttclient::mqttclient(Ui::Widget *ui, QWidget *parent)
-    : QWidget(parent), xUi(ui)
+    : QWidget(parent)
 {
     m_client = new QMqttClient(this);
     m_client->setHostname("192.168.137.212");
@@ -16,7 +16,6 @@ mqttclient::mqttclient(Ui::Widget *ui, QWidget *parent)
     timer->singleShot(5000, this, [this](){
         if(m_client->state() != QMqttClient::Connected){
             QMessageBox::warning(nullptr, "Error", "Timeout: Connection Timeout.\n");
-            xUi->label_broker_status_connect->setText("Failed to connect to mqtt broker!");
         }
     });
     connect(m_client, &QMqttClient::disconnected, this, &mqttclient::handleBrokerDisconnected);
@@ -35,7 +34,6 @@ void mqttclient::handleConnect()
 }
 void mqttclient::handleBrokerDisconnected()
 {
-    xUi->label_broker_status_connect->setText("Disconnected!");
 }
 
 

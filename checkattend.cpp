@@ -6,8 +6,8 @@
 #include <QCheckBox>
 
 
-CheckAttend::CheckAttend(Ui::Widget *ui, QWidget *parent)
- : QWidget(parent), xUi(ui)
+CheckAttend::CheckAttend(QWidget *parent)
+ : QWidget(parent)
 {
     QString urlGetList = "http://26.244.155.247:9191/get_tables/Student";
     apiHandler = new APIhandler(urlGetList);
@@ -52,7 +52,6 @@ void CheckAttend::handleConnectSuccess()
                     model->appendRow(rowData);
                 }
             }
-            xUi->tableListAttend->setModel(model);
 
         } else {
             qDebug() << "JSON is not an array";

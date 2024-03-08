@@ -4,13 +4,12 @@
 #include <QObject>
 #include <QWidget>
 #include <QMqttClient>
-#include "./ui_widget.h"
 
 class mqttclient : public QWidget
 {
     Q_OBJECT
 public:
-    mqttclient(Ui::Widget *ui, QWidget *parent = nullptr);
+    mqttclient(QWidget *parent = nullptr);
     ~mqttclient();
 
 signals:
