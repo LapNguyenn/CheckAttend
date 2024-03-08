@@ -31,6 +31,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         apihandler.cpp
         checkattend.h
         checkattend.cpp
+        src.qrc
 
 
     )
