@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Widget w;
 
-    QFile file("./theme/style.qss");
+    QFile file(":src/theme/style.qss");
     try {
         if (!file.open(QFile::ReadOnly)) {
             throw QString("Cannot open theme file: ") + file.errorString();

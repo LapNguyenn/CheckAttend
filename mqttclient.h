@@ -19,7 +19,6 @@ private slots:
     void handleConnect();
     void handleBrokerDisconnected();
 private:
-    Ui::Widget *xUi;
     QMqttClient *m_client;
 };
 

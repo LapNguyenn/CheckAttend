@@ -1,7 +1,7 @@
 #include "mqttclient.h"
 #include "QTimer"
 #include "QMessageBox"
-mqttclient::mqttclient(Ui::Widget *ui, QWidget *parent)
+mqttclient::mqttclient(QWidget *parent)
     : QWidget(parent)
 {
     m_client = new QMqttClient(this);

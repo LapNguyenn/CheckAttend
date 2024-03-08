@@ -25,6 +25,5 @@ private:
     CheckAttend *checkattend;
 
 private slots:
-    void handleMqttConnectSuccess();
 };
 #endif // WIDGET_H
