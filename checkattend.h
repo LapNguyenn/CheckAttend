@@ -20,6 +20,9 @@ private slots:
 private:
     Ui::Widget *xUi;
     APIhandler *apiHandler;
+public:
+    QStandardItemModel *model;
+    QStandardItemModel *getModel() const;
 };
 
 #endif // CHECKATTEND_H
