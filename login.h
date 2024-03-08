@@ -3,12 +3,16 @@
 
 #include <QObject>
 #include <QWidget>
+#include "ui_login.h"
 
-class Login
+class Login : public QWidget
 {
     Q_OBJECT
 public:
-    Login();
+    Login(QWidget *parent = nullptr);
+    ~Login();
+private:
+    Ui::Form *ui;
 };
 
 #endif // LOGIN_H

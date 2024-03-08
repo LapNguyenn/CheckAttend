@@ -2,8 +2,6 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include "mqttclient.h"
-#include "checkattend.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,8 +19,6 @@ public:
 
 private:
     Ui::Widget *ui;
-    mqttclient *mqttClient;
-    CheckAttend *checkattend;
 
 private slots:
 };
