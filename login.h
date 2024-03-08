@@ -11,6 +11,10 @@ class Login : public QWidget
 public:
     Login(QWidget *parent = nullptr);
     ~Login();
+signals:
+    void loginSuccess();
+private slots:
+    void on_bt_login_clicked();
 private:
     Ui::Form *ui;
 };

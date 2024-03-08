@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include "login.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,7 +19,10 @@ public:
     ~Widget();
 
 private:
+    void openLoginPage();
+    void openMainPage();
     Ui::Widget *ui;
+    Login *loginActivity;
 
 private slots:
 };
