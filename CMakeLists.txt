@@ -23,8 +23,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(diemdanh
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        login.h
-        login.cpp
+
+
         mqttclient.h
         mqttclient.cpp
         apihandler.h
