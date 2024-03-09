@@ -1,6 +1,7 @@
 #include "widget.h"
 #include "./ui_widget.h"
 #include <QToolButton>
+#include <QDebug>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -13,17 +14,20 @@ Widget::Widget(QWidget *parent)
 
 void Widget::openLoginPage()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    if (loginActivity) {
+        delete loginActivity;
+    }
     loginActivity = new Login(this);
-    Ui::Form loginUi;
-    loginUi.setupUi(loginActivity);
-    QVBoxLayout *loginLayout = new QVBoxLayout();
-    loginLayout->addWidget(loginActivity);
-    ui->loginWidget->setLayout(loginLayout);
+    int loginPageIndex = ui->stackedWidget->indexOf(ui->page_login);
+    ui->stackedWidget->removeWidget(ui->page_login);
+    ui->stackedWidget->insertWidget(loginPageIndex, loginActivity);
+    ui->stackedWidget->setCurrentIndex(loginPageIndex);
+
     connect(loginActivity, &Login::loginSuccess, this, [this](){
         openMainPage();
     });
 }
+
 
 void Widget::openMainPage()
 {
@@ -53,5 +57,8 @@ void Widget::openMainPage()
 Widget::~Widget()
 {
     delete ui;
+    if(loginActivity){
+        delete loginActivity;
+    }
 }
 

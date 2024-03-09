@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/assets">
         <file>theme/style.qss</file>
+        <file>icons/user-check.svg</file>
+        <file>icons/align-justify.svg</file>
+        <file>icons/calendar.svg</file>
+        <file>icons/settings.svg</file>
+        <file>icons/user.svg</file>
+        <file>icons/lock.svg</file>
+        <file>img/background.jpg</file>
     </qresource>
 </RCC>

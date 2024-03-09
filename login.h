@@ -16,7 +16,7 @@ signals:
 private slots:
     void on_bt_login_clicked();
 private:
-    Ui::Form *ui;
+    Ui::LoginWidget *ui;
 };
 
 #endif // LOGIN_H
