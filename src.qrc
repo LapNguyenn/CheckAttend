@@ -8,5 +8,9 @@
         <file>icons/user.svg</file>
         <file>icons/lock.svg</file>
         <file>img/background.jpg</file>
+        <file>icons/circle-yellow.svg</file>
+        <file>icons/circle-red.svg</file>
+        <file>icons/circle-gren.svg</file>
+        <file>icons/search.svg</file>
     </qresource>
 </RCC>

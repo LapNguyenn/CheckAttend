@@ -17,14 +17,39 @@
    <string notr="true">*{
 	border: none;
 	background-color: transparent;
-}
-QPushButton
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="page_login"/>
+     <widget class="QWidget" name="page_main">
+      <property name="styleSheet">
+       <string notr="true">QPushButton
 {
 	background-color: transparent;
 	color: dimgray;
 	padding: 10px;
 	padding-left: 20px;
-	border-radius: 20px;
+	border-radius: 0px;
 	text-align: left
 }
 
@@ -48,6 +73,11 @@ QPushButton::pressed
 	background-color: dodgerblue;
 
 }
+QPushButton::checked
+{
+	background-color: #4cb1ff;
+	color: #020f13;
+}
 #page_main{
 	background-color: whitesmoke;
 }
@@ -59,30 +89,7 @@ QPushButton::pressed
 	background-color: #f2f8fc;
 	color: #4a4b4b;
 }</string>
-  </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
-   <property name="spacing">
-    <number>0</number>
-   </property>
-   <item row="0" column="0">
-    <widget class="QStackedWidget" name="stackedWidget">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="page_login"/>
-     <widget class="QWidget" name="page_main">
+      </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
         <number>0</number>
@@ -101,6 +108,15 @@ QPushButton::pressed
        </property>
        <item alignment="Qt::AlignLeft">
         <widget class="QFrame" name="sideBar">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>200</width>
@@ -259,6 +275,9 @@ QPushButton::pressed
                     <height>24</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -276,6 +295,9 @@ QPushButton::pressed
                     <height>24</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -292,6 +314,9 @@ QPushButton::pressed
                     <width>24</width>
                     <height>24</height>
                    </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -391,6 +416,9 @@ QPushButton::pressed
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -404,15 +432,45 @@ QPushButton::pressed
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QToolButton" name="bt_sideBar">
+                 <widget class="QPushButton" name="bt_sideBar">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton
+{
+	background-color: transparent;
+	color: dimgray;
+	padding: 10px;
+	border-radius: 0px;
+}
+
+
+QPushButton::disabled
+{
+	background-color: #5c5c5c;
+
+}
+
+
+QPushButton::hover
+{
+	background-color: #0077b6;
+
+}
+
+
+QPushButton::pressed
+{
+	background-color: #0096c7;
+
+}</string>
+                  </property>
                   <property name="text">
-                   <string>...</string>
+                   <string/>
                   </property>
                   <property name="icon">
                    <iconset resource="src.qrc">
@@ -477,7 +535,7 @@ QPushButton::pressed
              <enum>QFrame::Raised</enum>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_attend_check">
              <layout class="QGridLayout" name="gridLayout_3">

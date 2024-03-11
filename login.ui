@@ -20,11 +20,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#LoginWidget{
-	border: none;
-	background-color: #c0c0c0;
-}
-#Background{
+   <string notr="true">#Background{
 	background-color: #ebebeb;
 	background-image: url(:/assets/img/background.jpg);
 }

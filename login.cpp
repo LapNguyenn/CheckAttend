@@ -6,12 +6,6 @@ Login::Login(QWidget *parent)
 {
     ui->setupUi(this);
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    // QRect parentGeometry = parent->geometry();
-    // qDebug() <<  "Parent: " << parentGeometry;
-    // this->setGeometry(0, 0, parentGeometry.width(), parentGeometry.height());
-    // qDebug() << "Login: " << this->geometry();
-
 }
 
 Login::~Login()

@@ -23,7 +23,6 @@ private:
     void openMainPage();
     Ui::Widget *ui;
     Login *loginActivity;
-
 private slots:
 };
 #endif // WIDGET_H

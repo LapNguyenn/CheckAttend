@@ -23,6 +23,8 @@ set(PROJECT_SOURCES
         apihandler.cpp
         checkattend.h
         checkattend.cpp
+        checkAttend.ui
+
         src.qrc
         login.h
         login.cpp
@@ -33,6 +35,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(diemdanh
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET diemdanh APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
