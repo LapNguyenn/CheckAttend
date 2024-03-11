@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "login.h"
+#include "checkattend.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,8 +22,10 @@ public:
 private:
     void openLoginPage();
     void openMainPage();
+    void openCheckAttendPage();
     Ui::Widget *ui;
     Login *loginActivity;
+    CheckAttend *checkAttendActivity;
 private slots:
 };
 #endif // WIDGET_H

@@ -23,7 +23,7 @@ set(PROJECT_SOURCES
         apihandler.cpp
         checkattend.h
         checkattend.cpp
-        checkAttend.ui
+        checkattend.ui
 
         src.qrc
         login.h

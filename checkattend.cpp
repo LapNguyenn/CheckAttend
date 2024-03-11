@@ -7,18 +7,21 @@
 
 
 CheckAttend::CheckAttend(QWidget *parent)
- : QWidget(parent)
+    : QWidget(parent), ui(new Ui::CheckAttendWidget)
 {
+    ui->setupUi(this);
     QString urlGetList = "http://26.244.155.247:9191/get_tables/Student";
+
     apiHandler = new APIhandler(urlGetList);
     model = new QStandardItemModel(this);
-
     connect(apiHandler, &APIhandler::connectSuccess, this, &CheckAttend::handleConnectSuccess);
 }
 
 CheckAttend::~CheckAttend()
 {
-
+    delete model;
+    delete ui;
+    delete apiHandler;
 }
 
 void CheckAttend::handleConnectSuccess()
@@ -64,9 +67,4 @@ void CheckAttend::handleConnectSuccess()
 void CheckAttend::handleConnectFailed()
 {
 
-}
-
-QStandardItemModel *CheckAttend::getModel() const
-{
-    return model;
 }

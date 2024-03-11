@@ -13,10 +13,9 @@ Widget::Widget(QWidget *parent)
 
 void Widget::openLoginPage()
 {
-    if (loginActivity) {
-        delete loginActivity;
+    if (!loginActivity) {
+        loginActivity = new Login(this);
     }
-    loginActivity = new Login(this);
     int loginPageIndex = ui->stackedWidget->indexOf(ui->page_login);
     ui->stackedWidget->removeWidget(ui->page_login);
     ui->stackedWidget->insertWidget(loginPageIndex, loginActivity);
@@ -32,9 +31,7 @@ void Widget::openMainPage()
     ui->stackedWidget->setCurrentIndex(1);
     ui->sideBar->setVisible(true);
     //Open check-attend page first
-    ui->body->setCurrentIndex(0);
-    ui->l_name_page->setText(ui->bt_open_attend_check->text());
-    ui->bt_open_attend_check->setChecked(true);
+    openCheckAttendPage();
     //Init button click function
     connect(ui->bt_sideBar, &QPushButton::clicked,this, [&, this](){
         if(ui->sideBar->isVisible()){
@@ -44,11 +41,7 @@ void Widget::openMainPage()
         }
     });
     connect(ui->bt_open_attend_check, &QPushButton::clicked, this, [&](){
-        ui->body->setCurrentIndex(0);
-        ui->l_name_page->setText(ui->bt_open_attend_check->text());
-        ui->bt_open_attend_check->setChecked(true);
-        ui->bt_open_page_schedule->setChecked(false);
-        ui->bt_open_page_admin->setChecked(false);
+        openCheckAttendPage();
     });
     connect(ui->bt_open_page_schedule, &QPushButton::clicked, this, [&](){
         ui->body->setCurrentIndex(1);
@@ -67,6 +60,23 @@ void Widget::openMainPage()
     });
 }
 
+void Widget::openCheckAttendPage()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    ui->body->setCurrentIndex(0);
+    ui->l_name_page->setText(ui->bt_open_attend_check->text());
+    ui->bt_open_attend_check->setChecked(true);
+    ui->bt_open_page_schedule->setChecked(false);
+    ui->bt_open_page_admin->setChecked(false);
+    if(!checkAttendActivity){
+        checkAttendActivity = new CheckAttend(this);
+        int checkAttendPageIndex = ui->body->indexOf(ui->page_attend_check);
+        ui->body->removeWidget(ui->page_attend_check);
+        ui->body->insertWidget(checkAttendPageIndex, checkAttendActivity);
+        ui->body->setCurrentIndex(checkAttendPageIndex);
+    }
+}
+
 
 
 Widget::~Widget()
@@ -74,6 +84,9 @@ Widget::~Widget()
     delete ui;
     if(loginActivity){
         delete loginActivity;
+    }
+    if(checkAttendActivity){
+        delete checkAttendActivity;
     }
 
 }

@@ -31,14 +31,13 @@ border: none;
 	border-bottom-left-radius: 10px;
 }
 
-#searchFrame
+#search_frame
 {
 	background-color: transparent;
-	border: 1px solid;
-	border-radius: 10px;
-}</string>
+}
+</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
     <number>0</number>
    </property>
@@ -55,17 +54,20 @@ border: none;
     <number>0</number>
    </property>
    <item>
-    <widget class="QFrame" name="Background">
+    <widget class="QFrame" name="body">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="spacing">
-       <number>0</number>
-      </property>
+     <layout class="QGridLayout" name="gridLayout">
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -78,18 +80,26 @@ border: none;
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item>
+      <item row="1" column="0">
+       <widget class="QTableView" name="tb_student_list">
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
        <widget class="QFrame" name="header">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>60</height>
+          <height>80</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>60</height>
+          <height>80</height>
          </size>
         </property>
         <property name="frameShape">
@@ -109,7 +119,7 @@ border: none;
           <number>0</number>
          </property>
          <property name="rightMargin">
-          <number>0</number>
+          <number>20</number>
          </property>
          <property name="bottomMargin">
           <number>0</number>
@@ -156,18 +166,18 @@ border: none;
            </layout>
           </widget>
          </item>
-         <item alignment="Qt::AlignRight">
-          <widget class="QFrame" name="frame_3">
+         <item alignment="Qt::AlignRight|Qt::AlignBottom">
+          <widget class="QFrame" name="search_frame">
            <property name="minimumSize">
             <size>
              <width>250</width>
-             <height>0</height>
+             <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>250</width>
-             <height>16777215</height>
+             <height>30</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -180,162 +190,6 @@ border: none;
             <enum>QFrame::Raised</enum>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
-            <item>
-             <layout class="QHBoxLayout" name="searchFrame">
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QLineEdit" name="le_search">
-                <property name="styleSheet">
-                 <string notr="true">QLineEdit
-{
-	background-color: transparent;
-	border: none;
-	padding-bottom: 2px;
-}</string>
-                </property>
-                <property name="placeholderText">
-                 <string>Nhập mã sinh viên...</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton">
-                <property name="styleSheet">
-                 <string notr="true">	background-color: transparent;
-	color: #020f13;
-	padding: 0px;
-	border-radius: 20px;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="src.qrc">
-                  <normaloff>:/assets/icons/search.svg</normaloff>:/assets/icons/search.svg</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>24</width>
-                  <height>24</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QFrame" name="body">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QGridLayout" name="gridLayout">
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item row="0" column="0">
-          <widget class="QTableView" name="tb_student_list">
-           <property name="styleSheet">
-            <string notr="true">background-color: transparent;
-</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QFrame" name="footer">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QFrame" name="frame_2">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-          </widget>
-         </item>
-         <item alignment="Qt::AlignRight">
-          <widget class="QFrame" name="frame_connect_status">
-           <property name="minimumSize">
-            <size>
-             <width>150</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>150</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
             <property name="spacing">
              <number>0</number>
             </property>
@@ -352,9 +206,165 @@ border: none;
              <number>0</number>
             </property>
             <item>
-             <widget class="QToolButton" name="bt_status_connect_mqtt">
+             <widget class="QLineEdit" name="le_search">
+              <property name="styleSheet">
+               <string notr="true">QLineEdit
+{
+	background-color: transparent;
+	border: none;
+	padding-bottom: 2px;
+}
+QLineEdit::focus
+{
+	border-bottom: 1px solid;
+}</string>
+              </property>
+              <property name="placeholderText">
+               <string>Nhập mã sinh viên...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="bt_search">
               <property name="styleSheet">
                <string notr="true">QPushButton
+{
+	background-color: transparent;
+	color: #020f13;
+	padding: 0px;
+	border-radius: 50px;
+}
+QPushButton::disabled
+{
+	background-color: #5c5c5c;
+
+}
+
+
+QPushButton::hover
+{
+	background-color: #90e0ef;
+	color: #90e0ef;
+
+}
+
+
+QPushButton::pressed
+{
+	background-color: #4cb1ff;
+
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="src.qrc">
+                <normaloff>:/assets/icons/search.svg</normaloff>:/assets/icons/search.svg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="footer">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="frame_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignRight">
+       <widget class="QFrame" name="frame_connect_status">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QToolButton" name="bt_status_connect_mqtt">
+           <property name="styleSheet">
+            <string notr="true">QPushButton
 {
 	background-color: transparent;
 	color: dimgray;
@@ -382,40 +392,37 @@ QPushButton::pressed
 	background-color: #0096c7;
 
 }</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="src.qrc">
-                <normaloff>:/assets/icons/circle-gren.svg</normaloff>:/assets/icons/circle-gren.svg</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>24</width>
-                <height>24</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QToolButton" name="bt_status_connect_api">
-              <property name="text">
-               <string>...</string>
-              </property>
-              <property name="icon">
-               <iconset resource="src.qrc">
-                <normaloff>:/assets/icons/circle-gren.svg</normaloff>:/assets/icons/circle-gren.svg</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>24</width>
-                <height>24</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="src.qrc">
+             <normaloff>:/assets/icons/circle-gren.svg</normaloff>:/assets/icons/circle-gren.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="bt_status_connect_api">
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="icon">
+            <iconset resource="src.qrc">
+             <normaloff>:/assets/icons/circle-gren.svg</normaloff>:/assets/icons/circle-gren.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
         </layout>

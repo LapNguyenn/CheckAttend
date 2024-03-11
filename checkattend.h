@@ -6,6 +6,7 @@
 #include "apihandler.h"
 #include "QNetworkReply"
 #include "QStandardItemModel"
+#include "ui_checkattend.h"
 
 class CheckAttend : public QWidget
 {
@@ -20,8 +21,8 @@ private slots:
 private:
     APIhandler *apiHandler;
 public:
+    Ui::CheckAttendWidget *ui;
     QStandardItemModel *model;
-    QStandardItemModel *getModel() const;
 };
 
 #endif // CHECKATTEND_H
