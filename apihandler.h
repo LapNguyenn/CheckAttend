@@ -26,7 +26,7 @@ private:
     QNetworkReply *reply;
 public:
     QByteArray result;
-    QByteArray getResult() const;
+    QByteArray getResult();
 };
 
 #endif // APIHANDLER_H

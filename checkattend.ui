@@ -83,8 +83,37 @@ border: none;
       <item row="1" column="0">
        <widget class="QTableView" name="tb_student_list">
         <property name="styleSheet">
-         <string notr="true">background-color: transparent;
-</string>
+         <string notr="true">QTableView {
+    color: black;
+    gridline-color: black;
+    border-color: #ffafcc;
+    font: 1.2em;
+}
+QHeaderView::section {
+    background-color: #219ebc;
+    color: #000814;
+    height: 35%;
+    font: 1.5em;
+}
+
+QTableView::item:selected {
+    background-color: #bde0fe;
+	color: black;
+	border: 1px solid #023047;
+}s
+
+QScrollBar:vertical {
+    background: #bde0fe;
+}
+ QScrollBar::handle:vertical {
+    background: #a2d2ff;
+ }
+QScrollBar:horizontal {
+    background: #bde0fe;
+}
+ QScrollBar::handle:horizontal {
+    background: #a2d2ff;
+ }</string>
         </property>
        </widget>
       </item>
@@ -329,13 +358,13 @@ QPushButton::pressed
        <widget class="QFrame" name="frame_connect_status">
         <property name="minimumSize">
          <size>
-          <width>150</width>
+          <width>200</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>150</width>
+          <width>200</width>
           <height>16777215</height>
          </size>
         </property>
@@ -347,7 +376,7 @@ QPushButton::pressed
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="spacing">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="leftMargin">
           <number>0</number>
@@ -409,6 +438,13 @@ QPushButton::pressed
           </widget>
          </item>
          <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Auto</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QToolButton" name="bt_status_connect_api">
            <property name="text">
             <string>...</string>
@@ -422,6 +458,13 @@ QPushButton::pressed
              <width>24</width>
              <height>24</height>
             </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Manual</string>
            </property>
           </widget>
          </item>

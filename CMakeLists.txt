@@ -24,7 +24,8 @@ set(PROJECT_SOURCES
         checkattend.h
         checkattend.cpp
         checkattend.ui
-
+        delegatetable.h
+        delegatetable.cpp
         src.qrc
         login.h
         login.cpp
@@ -35,6 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(diemdanh
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+
 
     )
 # Define target properties for Android with Qt 6 as:

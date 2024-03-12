@@ -18,7 +18,9 @@ public:
 private slots:
     void handleConnectSuccess();
     void handleConnectFailed();
+    void handleUpdateAttendStatus(const QModelIndex &index);
 private:
+    void displayList();
     APIhandler *apiHandler;
 public:
     Ui::CheckAttendWidget *ui;

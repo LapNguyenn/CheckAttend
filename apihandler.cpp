@@ -13,7 +13,15 @@ APIhandler::APIhandler(QString url)
 
 APIhandler::~APIhandler()
 {
-
+    if(manager){
+        delete manager;
+    }
+    if(request){
+        delete request;
+    }
+    if(reply){
+        delete reply;
+    }
 }
 
 void APIhandler::handleConect()
@@ -37,7 +45,7 @@ void APIhandler::handleConnectFailed()
     qDebug() << "Error fetching data: " << this->reply->errorString();
 }
 
-QByteArray APIhandler::getResult() const
+QByteArray APIhandler::getResult()
 {
     return result;
 }
