@@ -7,6 +7,7 @@
 #include "QNetworkReply"
 #include "QStandardItemModel"
 #include "ui_checkattend.h"
+#include "loadinganimation.h"
 
 class CheckAttend : public QWidget
 {
@@ -16,15 +17,16 @@ public:
     ~CheckAttend();
 
 private slots:
-    void handleConnectSuccess();
-    void handleConnectFailed();
+    void handleConnectFailed(QByteArray responseError);
     void handleUpdateAttendStatus(const QModelIndex &index);
 private:
-    void displayList();
+    void getListStudent();
+    void displayList(QByteArray list);
     APIhandler *apiHandler;
 public:
     Ui::CheckAttendWidget *ui;
     QStandardItemModel *model;
+    LoadingAnimation *loading;
 };
 
 #endif // CHECKATTEND_H

@@ -12,5 +12,6 @@
         <file>icons/circle-red.svg</file>
         <file>icons/circle-gren.svg</file>
         <file>icons/search.svg</file>
+        <file>gifs/loading.gif</file>
     </qresource>
 </RCC>

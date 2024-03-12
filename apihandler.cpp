@@ -1,53 +1,59 @@
 #include "apihandler.h"
 
-APIhandler::APIhandler(QString url)
+APIhandler::APIhandler()
 {
-    manager = new QNetworkAccessManager();
+    manager = new QNetworkAccessManager(this);
     request = new QNetworkRequest();
-    request->setUrl(QUrl(url));
-    reply = manager->get(*request);
-    connect(reply, &QNetworkReply::finished, this, &APIhandler::handleConect);
-    connect(this, &APIhandler::connectSuccess, this, &APIhandler::handleConnectSuccess);
-    connect(this, &APIhandler::connectFailed, this, &APIhandler::handleConnectFailed);
 }
 
 APIhandler::~APIhandler()
 {
-    if(manager){
-        delete manager;
-    }
-    if(request){
-        delete request;
-    }
-    if(reply){
+    delete manager;
+    delete request;
+    if (reply) {
         delete reply;
     }
 }
 
+void APIhandler::getRequest(QString url)
+{
+    request->setUrl(QUrl(url));
+    reply = manager->get(*request);
+    qDebug() << "Starting get method for " << url;
+    connect(reply, &QNetworkReply::finished, this, &APIhandler::handleConect);
+}
+
+void APIhandler::postRequest(QString url, QHttpMultiPart *message)
+{
+    request->setUrl(QUrl(url));
+    reply = manager->post(*request, message);
+    connect(reply, &QNetworkReply::finished, this, &APIhandler::handleConect);
+}
+
 void APIhandler::handleConect()
 {
-    if(reply->error() == QNetworkReply::NoError) {
-        emit connectSuccess();
+    emit finishConnect();
+    if (reply->error() == QNetworkReply::NoError) {
+        QByteArray responseData = reply->readAll();
+        emit connectSuccess(responseData);
     } else {
-        emit connectFailed();
+        QByteArray errorMessage = reply->errorString().toUtf8();
+        switch (reply->error()) {
+        case QNetworkReply::HostNotFoundError:
+            errorMessage.append("\nError: Host not found");
+            break;
+        case QNetworkReply::ConnectionRefusedError:
+            errorMessage.append("\nError: Connection refused");
+            break;
+        case QNetworkReply::TimeoutError:
+            errorMessage.append("\nError: Timeout");
+            break;
+        default:
+            errorMessage.append("\nError: Unknown error");
+            break;
+        }
+        emit connectFailed(errorMessage);
     }
+    reply->deleteLater();
 }
-
-void APIhandler::handleConnectSuccess()
-{
-    this->result = this->reply->readAll();
-    qDebug() << "API data: " << this->result;
-}
-
-void APIhandler::handleConnectFailed()
-{
-    this->result = this->reply->errorString().toUtf8();
-    qDebug() << "Error fetching data: " << this->reply->errorString();
-}
-
-QByteArray APIhandler::getResult()
-{
-    return result;
-}
-
 

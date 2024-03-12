@@ -10,59 +10,43 @@ CheckAttend::CheckAttend(QWidget *parent)
     : QWidget(parent), ui(new Ui::CheckAttendWidget)
 {
     ui->setupUi(this);
-    QString urlGetList = "http://26.244.155.247:9191/get_tables/Student";
-    apiHandler = new APIhandler(urlGetList);
-    model = new QStandardItemModel(this);
-    displayList();
+    loading = new LoadingAnimation(ui->l_loading, parent);
+    getListStudent();
 }
 
-
-
-void CheckAttend::handleConnectSuccess()
+void CheckAttend::getListStudent()
 {
-    QByteArray response = this->apiHandler->getResult();
-    qDebug() << response;
-    QJsonDocument jsonResponse = QJsonDocument::fromJson(response);
-    if(!jsonResponse.isNull()) {
-        if(jsonResponse.isArray()) {
+    QString urlGetList = "http://26.244.155.247:9191/get_tables/Student";
+    apiHandler = new APIhandler();
+    apiHandler->getRequest(urlGetList);
+    loading->startLoading();
+    connect(apiHandler, &APIhandler::finishConnect, loading, &LoadingAnimation::stopLoading);
+    connect(apiHandler, &APIhandler::connectSuccess, this, &CheckAttend::displayList);
+    connect(apiHandler, &APIhandler::connectFailed, this, &CheckAttend::handleConnectFailed);
+}
+
+void CheckAttend::displayList(QByteArray list)
+{
+    QJsonDocument jsonResponse = QJsonDocument::fromJson(list);
+    if(!jsonResponse.isNull()){
+        if(jsonResponse.isArray()){
             QJsonArray jsonArray = jsonResponse.array();
             for (const auto& jsonValue : jsonArray) {
                 if (jsonValue.isObject()) {
-                    // QJsonObject jsonObject = jsonValue.toObject();
+                    QJsonObject jsonObject = jsonValue.toObject();
                     // int id = jsonObject["ID"].toInt();
                     // QString name = jsonObject["Name"].toString();
-                    // QString major = jsonObject["Major"].toString();
+                    // QString date = jsonObject["Date"].toString();
                     // qDebug() << "ID:" << id << ", Name:" << name << ", Major:" << major;
-
-                    // QList<QStandardItem*>rowData;
-                    // rowData.append(new QStandardItem(QString::number(id)));
-                    // rowData.append(new QStandardItem(name));
-                    // rowData.append(new QStandardItem(major));
-
-                    // QStandardItem *checkBoxItem = new QStandardItem();
-                    // checkBoxItem->setData(id, Qt::UserRole);
-                    // checkBoxItem->setCheckable(true);
-                    // checkBoxItem->setCheckable(Qt::Unchecked);
-                    // rowData.append(checkBoxItem);
-
-                    // model->appendRow(rowData);
                 }
             }
         } else {
-            qDebug() << "JSON is not an array";
+            qDebug() << "Json is not an array";
         }
     } else {
-        qDebug() << "Wrong json format ";
+        qDebug() << "Wrong json format";
     }
-}
-
-void CheckAttend::handleConnectFailed()
-{
-
-}
-
-void CheckAttend::displayList()
-{
+    model = new QStandardItemModel(this);
     model->setColumnCount(4);
     model->setHorizontalHeaderLabels({"ID", "Tên", "Ngày sinh", "Trạng thái"});
     for (int i = 0; i< 30; i++){
@@ -100,6 +84,13 @@ void CheckAttend::handleUpdateAttendStatus(const QModelIndex &index)
         int id = index.sibling(index.row(), 0).data(Qt::DisplayRole).toInt();
         qDebug() << "ID of change line: " << id;
     }
+}
+
+void CheckAttend::handleConnectFailed(QByteArray responseError)
+{
+    QIcon originalIcon(":/assets/icons/circle-red.svg");
+    ui->bt_status_connect_api->setIcon(originalIcon);
+    qDebug() << responseError;
 }
 
 CheckAttend::~CheckAttend()
