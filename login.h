@@ -4,12 +4,13 @@
 #include <QObject>
 #include <QWidget>
 #include "ui_login.h"
+#include "apihandler.h"
 
 class Login : public QWidget
 {
     Q_OBJECT
 public:
-    Login(QWidget *parent = nullptr);
+    explicit Login(QWidget *parent = nullptr);
     ~Login();
 signals:
     void loginSuccess();

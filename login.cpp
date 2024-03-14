@@ -1,5 +1,6 @@
 #include "login.h"
 #include "QDebug"
+#include "TokenManager.h"
 Login::Login(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::LoginWidget)
@@ -15,6 +16,8 @@ Login::~Login()
 
 void Login::on_bt_login_clicked()
 {
+    QString token = "1";
+    TokenManager::getInstance().setToken(token);
     emit loginSuccess();
 }
 

@@ -10,7 +10,7 @@
         <file>img/background.jpg</file>
         <file>icons/circle-yellow.svg</file>
         <file>icons/circle-red.svg</file>
-        <file>icons/circle-gren.svg</file>
+        <file>icons/circle-green.svg</file>
         <file>icons/search.svg</file>
         <file>gifs/loading.gif</file>
     </qresource>

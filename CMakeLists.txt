@@ -17,6 +17,12 @@ set(PROJECT_SOURCES
         widget.cpp
         widget.h
         widget.ui
+)
+
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_add_executable(diemdanh
+        MANUAL_FINALIZATION
+        ${PROJECT_SOURCES}
         mqttclient.h
         mqttclient.cpp
         apihandler.h
@@ -32,15 +38,7 @@ set(PROJECT_SOURCES
         login.ui
         loadinganimation.h
         loadinganimation.cpp
-)
-
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(diemdanh
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-
-
-
+        TokenManager.h
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET diemdanh APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

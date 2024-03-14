@@ -263,7 +263,7 @@ QPushButton::checked
                 <item>
                  <widget class="QPushButton" name="bt_open_attend_check">
                   <property name="text">
-                   <string>Diem danh</string>
+                   <string>Điểm danh</string>
                   </property>
                   <property name="icon">
                    <iconset resource="src.qrc">
@@ -283,7 +283,7 @@ QPushButton::checked
                 <item>
                  <widget class="QPushButton" name="bt_open_page_schedule">
                   <property name="text">
-                   <string>Lich day</string>
+                   <string>Lịch dạy</string>
                   </property>
                   <property name="icon">
                    <iconset resource="src.qrc">
@@ -303,7 +303,7 @@ QPushButton::checked
                 <item>
                  <widget class="QPushButton" name="bt_open_page_admin">
                   <property name="text">
-                   <string>Admin</string>
+                   <string>Cài đặt Admin</string>
                   </property>
                   <property name="icon">
                    <iconset resource="src.qrc">
@@ -503,7 +503,7 @@ QPushButton::pressed
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_4">
                 <item>
-                 <widget class="QLabel" name="l_name_page">
+                 <widget class="QLabel" name="lbl_name_page">
                   <property name="font">
                    <font>
                     <pointsize>20</pointsize>

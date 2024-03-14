@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QMqttClient>
 
-class mqttclient : public QWidget
+class mqttclient: public QObject
 {
     Q_OBJECT
 public:
@@ -15,9 +15,8 @@ public:
 signals:
     void connectSuccess();
     void connectFailed();
-private slots:
-    void handleConnect();
-    void handleBrokerDisconnected();
+    void disconnected();
+    void newMessage(QString message);
 private:
     QMqttClient *m_client;
 };

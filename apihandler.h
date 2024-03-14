@@ -11,7 +11,7 @@ class APIhandler : public QObject
 {
     Q_OBJECT
 public:
-    APIhandler();
+    explicit APIhandler();
     ~APIhandler();
     void getRequest(QString url);
     void postRequest(QString url, QHttpMultiPart *message);

@@ -45,7 +45,7 @@ void Widget::openMainPage()
     });
     connect(ui->bt_open_page_schedule, &QPushButton::clicked, this, [&](){
         ui->body->setCurrentIndex(1);
-        ui->l_name_page->setText(ui->bt_open_page_schedule->text());
+        ui->lbl_name_page->setText(ui->bt_open_page_schedule->text());
         ui->bt_open_attend_check->setChecked(false);
         ui->bt_open_page_schedule->setChecked(true);
         ui->bt_open_page_admin->setChecked(false);
@@ -53,7 +53,7 @@ void Widget::openMainPage()
     });
     connect(ui->bt_open_page_admin, &QPushButton::clicked, this, [&](){
         ui->body->setCurrentIndex(2);
-        ui->l_name_page->setText(ui->bt_open_page_admin->text());
+        ui->lbl_name_page->setText(ui->bt_open_page_admin->text());
         ui->bt_open_attend_check->setChecked(false);
         ui->bt_open_page_schedule->setChecked(false);
         ui->bt_open_page_admin->setChecked(true);
@@ -64,7 +64,7 @@ void Widget::openCheckAttendPage()
 {
     ui->stackedWidget->setCurrentIndex(1);
     ui->body->setCurrentIndex(0);
-    ui->l_name_page->setText(ui->bt_open_attend_check->text());
+    ui->lbl_name_page->setText(ui->bt_open_attend_check->text());
     ui->bt_open_attend_check->setChecked(true);
     ui->bt_open_page_schedule->setChecked(false);
     ui->bt_open_page_admin->setChecked(false);
