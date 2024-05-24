@@ -4,7 +4,8 @@
 #include <QWidget>
 #include "login.h"
 #include "checkattend.h"
-
+#include "adminsystem.h"
+#include "scheduleview.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -20,12 +21,16 @@ public:
     ~Widget();
 
 private:
+    void openSchedulePage();
+    void openAdminPage();
     void openLoginPage();
     void openMainPage();
     void openCheckAttendPage();
     Ui::Widget *ui;
     Login *loginActivity;
     CheckAttend *checkAttendActivity;
+    AdminSystem *adminSystemActivity;
+    ScheduleView *scheduleViewActivity;
 private slots:
 };
 #endif // WIDGET_H

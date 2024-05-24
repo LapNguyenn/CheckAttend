@@ -9,6 +9,7 @@
 #include "ui_checkattend.h"
 #include "loadinganimation.h"
 #include "mqttclient.h"
+#include "mymqttclient.h"
 
 class CheckAttend : public QWidget
 {
@@ -19,12 +20,12 @@ public:
 
 private slots:
     void handleConnectFailed(QByteArray responseError);
-    void handleUpdateAttendStatus(const QModelIndex &index);
-    void handleMqttMessage(QString message);
+    void handleMqttMessage(QString message, QString topic);
     void handleMqttConnectSuccess();
     void handleMqttDisconnected();
     void displayList(QByteArray list);
     void searchById(const QString &inputId);
+    void submitToJson();
 private:
     void initMqtt();
     void getListStudent();
@@ -33,8 +34,9 @@ private:
     Ui::CheckAttendWidget *ui;
     QStandardItemModel *model;
     LoadingAnimation *loading;
-    mqttclient *m_client;
+
 private:
+    // mqttclient *m_client;
     QString apiHost;
     QStringList UserInfo;
 private://for test

@@ -1,0 +1,67 @@
+<RCC>
+    <qresource prefix="/ui">
+        <file>scheduleview.ui</file>
+        <file>adminsystem.ui</file>
+        <file>dialoguserdetail.ui</file>
+        <file>checkattend.ui</file>
+        <file>login.ui</file>
+        <file>widget.ui</file>
+    </qresource>
+    <qresource prefix="/controller">
+        <file>scheduleview.cpp</file>
+        <file>scheduleview.h</file>
+        <file>adminsystem.cpp</file>
+        <file>adminsystem.h</file>
+        <file>checkattend.cpp</file>
+        <file>checkattend.h</file>
+        <file>widget.cpp</file>
+        <file>widget.h</file>
+    </qresource>
+    <qresource prefix="/utils">
+        <file>dialoguserdetail.cpp</file>
+        <file>dialoguserdetail.h</file>
+        <file>loadinganimation.h</file>
+        <file>loadinganimation.cpp</file>
+        <file>delegatetable.cpp</file>
+        <file>delegatetable.h</file>
+        <file>apihandler.cpp</file>
+        <file>apihandler.h</file>
+        <file>MyDateTime.h</file>
+        <file>TokenManager.h</file>
+    </qresource>
+    <qresource prefix="/assets">
+        <file>img/background.jpg</file>
+        <file>img/defaultPic.jpg</file>
+        <file>img/bmp/Tungns.bmp</file>
+        <file>img/bmp/Tung.bmp</file>
+        <file>img/bmp/Thinh.bmp</file>
+        <file>img/bmp/SepLinh.bmp</file>
+        <file>img/bmp/Lap.bmp</file>
+        <file>img/bmp/Lam.bmp</file>
+        <file>img/bmp/Hoan.bmp</file>
+        <file>img/bmp/Hai.bmp</file>
+        <file>img/bmp/An.bmp</file>
+        <file>icons/user.svg</file>
+        <file>icons/user-check.svg</file>
+        <file>icons/settings.svg</file>
+        <file>icons/search.svg</file>
+        <file>icons/lock.svg</file>
+        <file>icons/circle-yellow.svg</file>
+        <file>icons/circle-red.svg</file>
+        <file>icons/circle-green.svg</file>
+        <file>icons/calendar.svg</file>
+        <file>icons/align-justify.svg</file>
+        <file>icons/restart.svg</file>
+        <file>icons/shutdown.svg</file>
+        <file>icons/escape.svg</file>
+        <file>icons/camera.svg</file>
+        <file>icons/ic_edit.svg</file>
+        <file>icons/ic_add_user.svg</file>
+        <file>icons/ic_delete.svg</file>
+        <file>gifs/loading.gif</file>
+    </qresource>
+    <qresource prefix="/model">
+        <file>mqttclient.cpp</file>
+        <file>mqttclient.h</file>
+    </qresource>
+</RCC>

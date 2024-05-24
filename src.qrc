@@ -13,5 +13,22 @@
         <file>icons/circle-green.svg</file>
         <file>icons/search.svg</file>
         <file>gifs/loading.gif</file>
+        <file>img/defaultPic.jpg</file>
+        <file>icons/shutdown.svg</file>
+        <file>icons/escape.svg</file>
+        <file>icons/restart.svg</file>
+        <file>icons/camera.svg</file>
+        <file>img/bmp/An.bmp</file>
+        <file>img/bmp/Tungns.bmp</file>
+        <file>img/bmp/Thinh.bmp</file>
+        <file>img/bmp/Lap.bmp</file>
+        <file>img/bmp/Lam.bmp</file>
+        <file>img/bmp/Tung.bmp</file>
+        <file>img/bmp/SepLinh.bmp</file>
+        <file>img/bmp/Hoan.bmp</file>
+        <file>img/bmp/Hai.bmp</file>
+        <file>icons/ic_edit.svg</file>
+        <file>icons/ic_add_user.svg</file>
+        <file>icons/ic_delete.svg</file>
     </qresource>
 </RCC>

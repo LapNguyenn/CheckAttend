@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>628</width>
+    <width>608</width>
     <height>466</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -31,7 +37,10 @@ border: none;
 {
 	background-color: transparent;
 }
-</string>
+QMessageBox {
+    background-color: #f5faf5;
+    border: 2px solid #020f13;
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
    <property name="spacing">
@@ -502,8 +511,13 @@ QScrollBar:horizontal {
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="font">
+            <font>
+             <italic>true</italic>
+            </font>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -548,34 +562,14 @@ QScrollBar:horizontal {
          </property>
          <item>
           <widget class="QToolButton" name="bt_status_connect_mqtt">
+           <property name="toolTip">
+            <string>Đang kết nối với camera AI</string>
+           </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	background-color: transparent;
-	color: dimgray;
-	padding: 10px;
-	border-radius: 0px;
-}
-
-
-QPushButton::disabled
-{
-	background-color: #5c5c5c;
-
-}
-
-
-QPushButton::hover
-{
-	background-color: #0077b6;
-
-}
-
-
-QPushButton::pressed
-{
-	background-color: #0096c7;
-
+            <string notr="true">QToolTip 
+{ 
+	background-color: #FFFFCC;
+	color: #000000; 
 }</string>
            </property>
            <property name="text">
@@ -596,12 +590,19 @@ QPushButton::pressed
          <item>
           <widget class="QLabel" name="l_auto">
            <property name="text">
-            <string>Auto</string>
+            <string>Camera AI</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QToolButton" name="bt_status_connect_api">
+           <property name="styleSheet">
+            <string notr="true">QToolTip 
+{ 
+	background-color: #FFFFCC;
+	color: #000000; 
+}</string>
+           </property>
            <property name="text">
             <string>...</string>
            </property>
@@ -620,7 +621,7 @@ QPushButton::pressed
          <item>
           <widget class="QLabel" name="l_manual">
            <property name="text">
-            <string>Manual</string>
+            <string>Server</string>
            </property>
           </widget>
          </item>

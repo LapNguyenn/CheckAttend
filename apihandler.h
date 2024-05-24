@@ -6,6 +6,7 @@
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QJsonArray>
 
 class APIhandler : public QObject
 {
@@ -14,7 +15,7 @@ public:
     explicit APIhandler();
     ~APIhandler();
     void getRequest(QString url);
-    void postRequest(QString url, QHttpMultiPart *message);
+    void postRequest(QString url, QJsonArray jsonMessage);
 
 signals:
     void finishConnect();

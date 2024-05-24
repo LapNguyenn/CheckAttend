@@ -1,4 +1,8 @@
 #include "apihandler.h"
+#include <QJsonDocument>
+#include <QHttpPart>
+#include <QHttpMultiPart>
+#include <QByteArray>
 
 APIhandler::APIhandler()
 {
@@ -23,11 +27,18 @@ void APIhandler::getRequest(QString url)
     connect(reply, &QNetworkReply::finished, this, &APIhandler::handleConect);
 }
 
-void APIhandler::postRequest(QString url, QHttpMultiPart *message)
+void APIhandler::postRequest(QString url, QJsonArray jsonMessage)
 {
     request->setUrl(QUrl(url));
-    reply = manager->post(*request, message);
+    request->setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    QJsonDocument jsonDoc(jsonMessage);
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    reply = manager->post(*request, jsonString.toUtf8());
+    qDebug() << "Starting post method for " << url;
     connect(reply, &QNetworkReply::finished, this, &APIhandler::handleConect);
+    connect(reply, &QNetworkReply::errorOccurred, [this](QNetworkReply::NetworkError error) {
+        qDebug() << "Network error:" << error;
+    });
 }
 
 void APIhandler::handleConect()
@@ -40,16 +51,16 @@ void APIhandler::handleConect()
         QByteArray errorMessage = reply->errorString().toUtf8();
         switch (reply->error()) {
         case QNetworkReply::HostNotFoundError:
-            errorMessage.append("\nError: Host not found");
+            errorMessage.append("Error: Host not found");
             break;
         case QNetworkReply::ConnectionRefusedError:
-            errorMessage.append("\nError: Connection refused");
+            errorMessage.append("Error: Connection refused");
             break;
         case QNetworkReply::TimeoutError:
-            errorMessage.append("\nError: Timeout");
+            errorMessage.append("Error: Timeout");
             break;
         default:
-            errorMessage.append("\nError: Unknown error");
+            errorMessage.append("Error: Unknown error");
             break;
         }
         emit connectFailed(errorMessage);

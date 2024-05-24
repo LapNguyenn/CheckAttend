@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/ui">
+        <file>scheduleview.ui</file>
+        <file>adminsystem.ui</file>
+        <file>dialoguserdetail.ui</file>
+        <file>checkattend.ui</file>
+        <file>login.ui</file>
+        <file>widget.ui</file>
+    </qresource>
+</RCC>

@@ -32,13 +32,24 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         checkattend.ui
         delegatetable.h
         delegatetable.cpp
-        src.qrc
         login.h
         login.cpp
         login.ui
         loadinganimation.h
         loadinganimation.cpp
         TokenManager.h
+        MyDateTime.h
+        adminsystem.h
+        adminsystem.cpp
+        adminsystem.ui
+        scheduleview.h
+        scheduleview.cpp
+        scheduleview.ui
+        dialoguserdetail.h
+        dialoguserdetail.cpp
+        dialoguserdetail.ui
+        project-struct.qrc
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET diemdanh APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

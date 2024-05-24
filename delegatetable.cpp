@@ -1,7 +1,8 @@
 #include "delegatetable.h"
 #include <QPainter>
-
-
+#include <QPixmap>
+#include <QRect>
+#include <QLabel>
 delegateTable::delegateTable()
 {
 
@@ -12,10 +13,6 @@ void delegateTable::paint(QPainter *painter, const QStyleOptionViewItem &option,
     if(index.column() == 3) {
         QString attendStatus = index.data(Qt::DisplayRole).toString();
         QRect rect = option.rect;
-
-        // // Default background color
-        // painter->fillRect(rect, QColor(189,224,254));
-
         // Change background color
         if (attendStatus.compare("Vắng") == 0) {
             painter->fillRect(rect, QColor(230,57,70));
@@ -54,7 +51,7 @@ QWidget *delegateTable::createEditor(QWidget *parent, const QStyleOptionViewItem
                               "QComboBox::drop-down {"
                               "subcontrol-origin: padding;"
                               "subcontrol-position: top right;"
-                              "width: 20%;"
+                              "width: 100%;"
                               "}"
                               );
         return editor;
