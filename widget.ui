@@ -271,7 +271,7 @@ QPushButton::checked
                    <string>Điểm danh</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="src.qrc">
+                   <iconset resource="project-struct.qrc">
                     <normaloff>:/assets/icons/user-check.svg</normaloff>:/assets/icons/user-check.svg</iconset>
                   </property>
                   <property name="iconSize">
@@ -291,7 +291,7 @@ QPushButton::checked
                    <string>Lịch dạy</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="src.qrc">
+                   <iconset resource="project-struct.qrc">
                     <normaloff>:/assets/icons/calendar.svg</normaloff>:/assets/icons/calendar.svg</iconset>
                   </property>
                   <property name="iconSize">
@@ -311,7 +311,7 @@ QPushButton::checked
                    <string>Cài đặt Admin</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="src.qrc">
+                   <iconset resource="project-struct.qrc">
                     <normaloff>:/assets/icons/settings.svg</normaloff>:/assets/icons/settings.svg</iconset>
                   </property>
                   <property name="iconSize">
@@ -478,7 +478,7 @@ QPushButton::pressed
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="src.qrc">
+                   <iconset resource="project-struct.qrc">
                     <normaloff>:/assets/icons/align-justify.svg</normaloff>:/assets/icons/align-justify.svg</iconset>
                   </property>
                   <property name="iconSize">
@@ -568,7 +568,7 @@ QPushButton::pressed
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="src.qrc">
+                   <iconset resource="project-struct.qrc">
                     <normaloff>:/assets/icons/shutdown.svg</normaloff>:/assets/icons/shutdown.svg</iconset>
                   </property>
                   <property name="iconSize">
@@ -595,7 +595,7 @@ QPushButton::pressed
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="src.qrc">
+                   <iconset resource="project-struct.qrc">
                     <normaloff>:/assets/icons/escape.svg</normaloff>:/assets/icons/escape.svg</iconset>
                   </property>
                   <property name="iconSize">
@@ -641,7 +641,7 @@ QPushButton::pressed
   </layout>
  </widget>
  <resources>
-  <include location="src.qrc"/>
+  <include location="project-struct.qrc"/>
  </resources>
  <connections/>
 </ui>

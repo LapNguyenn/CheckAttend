@@ -11,7 +11,6 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     openLoginPage();
-    bool ok;
     connect(ui->bt_shutdown, &QPushButton::clicked, this, [](){
         QProcess::execute("sudo poweroff");
         QMessageBox::StandardButton reply;
@@ -40,7 +39,7 @@ void Widget::openLoginPage()
 
 void Widget::openMainPage()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(ui->stackedWidget->indexOf(checkAttendActivity));
     ui->sideBar->setVisible(true);
     //Open check-attend page first
     if(!checkAttendActivity){
@@ -77,33 +76,36 @@ void Widget::openMainPage()
 
 void Widget::openCheckAttendPage()
 {
-
-    ui->stackedWidget->setCurrentIndex(0);
-    ui->body->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(ui->stackedWidget->indexOf(checkAttendActivity));
+    ui->body->setCurrentIndex(ui->body->indexOf(checkAttendActivity));
     ui->lbl_name_page->setText(ui->bt_open_attend_check->text());
+    uncheckAllPageButton();
     ui->bt_open_attend_check->setChecked(true);
-    ui->bt_open_page_schedule->setChecked(false);
-    ui->bt_open_page_admin->setChecked(false);
 }
+
 void Widget::openSchedulePage()
 {
-
     ui->stackedWidget->setCurrentIndex(0);
-    ui->body->setCurrentIndex(1);
-    ui->bt_open_attend_check->setChecked(false);
-    ui->bt_open_page_schedule->setChecked(true);
-    ui->bt_open_page_admin->setChecked(false);
+    ui->body->setCurrentIndex(ui->body->indexOf(scheduleViewActivity));
     ui->lbl_name_page->setText(ui->bt_open_page_schedule->text());
+    uncheckAllPageButton();
+    ui->bt_open_page_schedule->setChecked(true);
 }
 
 void Widget::openAdminPage()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    ui->body->setCurrentIndex(2);
+    ui->body->setCurrentIndex(ui->body->indexOf(adminSystemActivity));
     ui->lbl_name_page->setText(ui->bt_open_page_admin->text());
+    uncheckAllPageButton();
+    ui->bt_open_page_admin->setChecked(true);
+}
+
+void Widget::uncheckAllPageButton()
+{
     ui->bt_open_attend_check->setChecked(false);
     ui->bt_open_page_schedule->setChecked(false);
-    ui->bt_open_page_admin->setChecked(true);
+    ui->bt_open_page_admin->setChecked(false);
 }
 
 Widget::~Widget()

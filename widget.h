@@ -26,6 +26,7 @@ private:
     void openLoginPage();
     void openMainPage();
     void openCheckAttendPage();
+    void uncheckAllPageButton();
     Ui::Widget *ui;
     Login *loginActivity;
     CheckAttend *checkAttendActivity;

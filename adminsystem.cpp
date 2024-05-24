@@ -158,8 +158,8 @@ void AdminSystem::displayListUser()
     }
 
     ui->tb_user_list->setModel(model);
-    // auto colHeader = ui->tb_user_list->horizontalHeader();
-    // colHeader->setSectionResizeMode(QHeaderView::ResizeToContents);
+    auto colHeader = ui->tb_user_list->horizontalHeader();
+    colHeader->setSectionResizeMode(QHeaderView::Stretch);
     ui->tb_user_list->resizeRowsToContents();
 
     connect(ui->tb_user_list, &QTableView::doubleClicked, this, [=](const QModelIndex &index) {
